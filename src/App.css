@@ -1,12 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Neucha&display=swap");
 
-body {
+.App {
   background-color: #1af5f8;
   font-family: "Neucha", cursive;
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100vh;
-  margin: 0;
   overflow: hidden;
+  padding: 20px;
+}
+
+
+.heading {
+  font-size: 30px;
+  color: white;
+  text-transform: uppercase;
 }
