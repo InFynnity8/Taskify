@@ -1,13 +1,27 @@
-import React from 'react'
-import './InputField.css'
+import React from "react";
+import "./InputField.css";
 
-const InputField: React.FC = () => {
-  return (
-    <form className='input'>
-      <input type="text" placeholder="Enter a task" className='input-box'/>
-      <button type='submit' className='input-submit'>Go</button>
-    </form>
-  )
+interface Props {
+  todo: string
+  setTodo: React.Dispatch<React.SetStateAction<string>>
+  addTodo: (e: React.FormEvent) => void
 }
 
-export default InputField
+const InputField: React.FC<Props> = ({ todo, setTodo, addTodo }) => {
+  return (
+    <form className="input" onSubmit={addTodo}>
+      <input
+        type="text"
+        placeholder="Enter a task"
+        className="input-box"
+        value={todo}
+        onChange={(e) => setTodo(e.target.value)}
+      />
+      <button type="submit" className="input-submit" >
+        Go
+      </button>
+    </form>
+  );
+};
+
+export default InputField;
