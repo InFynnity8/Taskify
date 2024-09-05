@@ -13,10 +13,13 @@ const App: React.FC = () => {
 
   const addTodo = (e: React.FormEvent) => {
     e.preventDefault()          
-   if (todo) {
+   if (todo.trim()) {
       setTodos([...todos, { id: Date.now(), todo: todo, isDone: false }])
       setTodo("")
       console.log(todos)
+    }
+    else{
+      alert("Please enter a task")
     }
   }
 

@@ -8,19 +8,24 @@ interface Props {
   todo: Todo;
   todos: Todo[];
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  completedTodos: Todo[];
+  setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>; 
 }
 
-const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
+const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos, completedTodos, setCompletedTodos }) => {
   const [edit, setEdit] = useState<boolean>(false);
   const [editTodo, setEditTodo] = useState<string>(todo.todo);
+
+
+useEffect(()=>{
+  setCompletedTodos(todos.filter((todo) => todo.isDone === true));
+})
 
   const handleDone = (id: number) => {
     setTodos(
       todos.map((todo) =>
         todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
       )
-    
-
     );
     
   };
