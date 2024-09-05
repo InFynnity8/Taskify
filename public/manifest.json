@@ -1,6 +1,6 @@
 {
   "short_name": "Taskify",
-  "name": "Taskify",
+  "name": "Taskify - Your Task Manager",
   "icons": [
     {
       "src": "taskify.ico",
